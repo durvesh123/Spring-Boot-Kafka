@@ -6,13 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.springboot.kafka.model.User;
 
 @RestController
 @RequestMapping("kafka")
 public class UserResource {
 
     @Autowired
-    KafkaTemplate<String, String> kafkaTemplate;
+    KafkaTemplate<String, User> kafkaTemplate;
     private static final String TOPIC = "kafka_template_example";
 
     @GetMapping("/publish/{message}")
